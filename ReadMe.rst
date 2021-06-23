@@ -272,6 +272,7 @@ the latest submodules code.
   git pull
   git submodule update
 
+
 Note: When cloning submodule repos, '--recursive' option is not
 recommended. EDK II itself will not use any code/feature from
 submodules in above submodules. So using '--recursive' adds a
