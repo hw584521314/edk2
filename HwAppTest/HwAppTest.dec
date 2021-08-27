@@ -1,0 +1,73 @@
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = HwAppTest
+  PACKAGE_UNI_FILE               = HwAppTest.uni
+  PACKAGE_GUID                   = 93E4740E-F5B1-4D3C-B66D-45D7F3D19755
+  PACKAGE_VERSION                = 1.0
+
+[Includes]
+  Include
+
+
+
+[LibraryClasses]
+  
+
+  ##  @libraryclass  Debug Agent is used to provide soft debug capability.
+  #
+  #DebugAgentLib|Include/Library/DebugAgentLib.h
+
+  
+
+  ## @libraryclass   Provides core boot manager functions
+  #UefiBootManagerLib|Include/Library/UefiBootManagerLib.h
+
+  ## @libraryclass   Provides core boot manager functions
+  #PlatformBootManagerLib|Include/Library/PlatformBootManagerLib.h
+
+  
+
+  ## @libraryclass  Provides services to get do the file explorer.
+  #
+#  FileExplorerLib|Include/Library/FileExplorerLib.h
+
+  
+
+[Guids]
+  ## MdeModule package token space guid
+  # Include/Guid/MdeModulePkgTokenSpace.h
+ # gEfiMdeModulePkgTokenSpaceGuid       = { 0xA1AFF049, 0xFDEB, 0x442a, { 0xB3, 0x20, 0x13, 0xAB, 0x4C, 0xB7, 0x2B, 0xBC }}
+
+  
+#[Ppis]
+  ## Include/Ppi/AtaController.h
+#  gPeiAtaControllerPpiGuid       = { 0xa45e60d1, 0xc719, 0x44aa, { 0xb0, 0x7a, 0xaa, 0x77, 0x7f, 0x85, 0x90, 0x6d }}
+
+ 
+[Protocols]
+  ## Load File protocol provides capability to load and unload EFI image into memory and execute it.
+  #  Include/Protocol/LoadPe32Image.h
+  #  This protocol is deprecated. Native EDKII module should NOT use this protocol to load/unload image.
+  #  If developer need implement such functionality, they should use BasePeCoffLib.
+#  gEfiLoadPeImageProtocolGuid    = { 0x5CB5C776, 0x60D5, 0x45EE, { 0x88, 0x3C, 0x45, 0x27, 0x08, 0xCD, 0x74, 0x3F }}
+
+  ## Print protocols define basic print functions to print the format unicode and ascii string.
+  # Include/Protocol/Print2.h
+#  gEfiPrint2ProtocolGuid          = { 0xf05976ef, 0x83f1, 0x4f3d, { 0x86, 0x19, 0xf7, 0x59, 0x5d, 0x41, 0xe5, 0x38 } }
+#  gEfiPrint2SProtocolGuid         = { 0xcc252d2, 0xc106, 0x4661, { 0xb5, 0xbd, 0x31, 0x47, 0xa4, 0xf8, 0x1f, 0x92 } }
+
+ 
+  ## This protocol defines the Debugger Configuration interface.
+  # Include/Protocol/DebuggerConfiguration.h
+#  gEfiDebuggerConfigurationProtocolGuid = { 0x577d959c, 0xe967, 0x4546, { 0x86, 0x20, 0xc7, 0x78, 0xfa, 0xe5, 0xda, 0x05 }}
+
+#[PcdsFeatureFlag]
+  ## Indicates if the platform can support update capsule across a system reset.<BR><BR>
+  #   TRUE  - Supports update capsule across a system reset.<BR>
+  #   FALSE - Does not support update capsule across a system reset.<BR>
+  # @Prompt Enable update capsule across a system reset.
+#  gEfiMdeModulePkgTokenSpaceGuid.PcdSupportUpdateCapsuleReset|FALSE|BOOLEAN|0x0001001d
+
+#[UserExtensions.TianoCore."ExtraFiles"]
+#  MdeModulePkgExtra.uni

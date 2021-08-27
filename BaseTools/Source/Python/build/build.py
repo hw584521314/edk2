@@ -2590,7 +2590,7 @@ def Main():
     LogQ = mp.Queue(LogQMaxSize)
     # Initialize log system
     EdkLogger.LogClientInitialize(LogQ)
-    GlobalData.gCommand = sys.argv[1:]
+    GlobalData.gCommand = "\"%s\"" % sys.argv[1:]
     #
     # Parse the options and args
     #
